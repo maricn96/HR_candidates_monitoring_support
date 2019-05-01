@@ -1,0 +1,62 @@
+<form class="example-form" (submit)="addCandidate($event)">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Insert first name" id="firstname" />
+        </mat-form-field>
+        <p id="nameerr" class="err" *ngIf="nameerr">Size of name not appropriate!</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Surname</mat-label>
+          <input matInput placeholder="Insert surname" id="surname" />
+        </mat-form-field>
+        <p id="surnameerr" class="err" *ngIf="surnameerr">Size of surname not appropriate!</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input matInput placeholder="Insert phone number" id="phone" />
+        </mat-form-field>
+        <p id="phoneerr" class="err" *ngIf="phoneerr">Phone number field must contain value!</p>
+        <p class="err" *ngIf="phoneNaN">Phone number must contain only digits!</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Insert email address" id="email" />
+        </mat-form-field>
+        <p id="emailerr" class="err" *ngIf="emailerr">E-mail field must contain value!</p>
+        <p class="err" *ngIf="emailreg">E-mail form not valid!</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Date of birth</mat-label>
+          <input type="date" matInput placeholder="Insert date of birth" id="birthdate" />
+        </mat-form-field>
+        <p id="bdateerr" class="err" *ngIf="bdateerr">Date field can't be empty!</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>List of skills</mat-label>
+          <mat-select multiple id="listofskills" #multipleSkills>
+            <mat-option *ngFor="let skill of skillsApi" (click)="addSKillsToCandidate(multipleSkills.value)" [value]="skill">{{ skill }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <button class="btn" mat-button type="submit" >Create</button>
+</form>

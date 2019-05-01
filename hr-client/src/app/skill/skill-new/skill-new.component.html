@@ -1,0 +1,22 @@
+<form class="example-form" (submit)="addSkill($event)">
+
+  <table>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Skill name</mat-label>
+          <input matInput placeholder="Insert skill name" id="skill" />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Insert short description about skill" id="description"></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+  </table>
+  <button class="btn" mat-button type="submit" >Create</button>
+</form>

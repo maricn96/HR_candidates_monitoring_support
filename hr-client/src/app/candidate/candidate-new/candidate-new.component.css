@@ -1,0 +1,13 @@
+mat-form-field{
+    min-width: 600px;
+}
+
+.btn{
+    background-color: #024BC5;
+    color: white;
+    margin-left: 250px;
+}
+
+.err{
+    color: red;
+}

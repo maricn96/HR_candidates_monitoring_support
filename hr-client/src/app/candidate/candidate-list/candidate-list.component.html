@@ -1,0 +1,50 @@
+<form class="example-form" (submit)="searchCandidate($event)" *ngIf="!searchFlag">
+  <mat-form-field appearance="outline" class="searchform" style="float: right;" matTooltip="Supported search: by name or part of name, surname or part of surname, skill or part of skill, more skills and combinations separated by commas.">
+    <mat-label>Search candidates by part of name or skills</mat-label>
+    <input matInput placeholder="Search by skills separated by comma" id="searchinput"/>
+    <button class="candbtn" type="submit" mat-button style="float: right; margin-left: 300px;">Search</button>
+  </mat-form-field>
+</form>
+
+<button class="candbtn" (click)="resetSearch()" mat-button style="float: right; margin-left: 300px;" *ngIf="searchFlag">Reset search</button>
+<br /><br /> <br /><br /> <br /> <br />
+
+<h1 *ngIf="candidatesEmpty" style="color: red; float: left;">No candidates to display</h1>
+<h1 *ngIf="searchEmptyFlag" style="color: red">Search result is empty!</h1>
+
+<mat-grid-list cols="4" rowHeight="1:1" > <!--*ngIf="!searchFlag"-->
+  <mat-grid-tile *ngFor="let cand of candidatesApi">
+    <mat-card class="candcard">
+      <mat-card-header>
+        <mat-card-title><strong>{{ cand.name }} {{ cand.surname }}</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Date of birth: {{ cand.birthDate | date }} <br />
+          Phone number: {{ cand.phoneNumber }} <br />
+          E-mail address: {{ cand.email }}
+        </p>
+        <i>Skills</i>:
+        <div [style.overflow]="'auto'" [style.height.px]="'170'"><p *ngFor="let sk of cand.skills">
+          <strong [matTooltip]="sk.description">{{ sk.skill }}</strong> &nbsp; <button class="deleteskbtn" mat-mini-fab (click)="deleteCandSkills(cand, sk.id)">x</button>
+        </p></div>
+        <div *ngIf="cand.id == ID_CHECK">
+          <form (submit)="addSkills($event, cand.id)">
+          <mat-form-field>
+            <mat-select multiple class="listofskills" #multipleSkills>
+              <mat-option *ngFor="let skill of skillsForCheckBox" (click)="getSkillsFromUpdate(multipleSkills.value)" [value]="skill">{{ skill.skill }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button class="candbtn" mat-button type="submit" >Save</button>
+        </form>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="candbtn" (click)="showSelectBox(cand.id)" mat-button>Add skills</button>
+        <button class="candbtn" (click)="deleteCand(cand.id)" mat-button>Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+

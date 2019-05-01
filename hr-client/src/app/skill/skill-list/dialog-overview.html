@@ -1,0 +1,14 @@
+<form (submit)="updateSkill($event)">
+<h1 mat-dialog-title>Update skill's data</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Skill name</mat-label>
+          <input matInput id="skill" [value]="skill" />
+        </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput id="description" [value]="description"></textarea>
+  </mat-form-field>
+  <button style=" background-color: #024BC5; color: white;" mat-button type="submit">Save</button>
+</div>
+</form>

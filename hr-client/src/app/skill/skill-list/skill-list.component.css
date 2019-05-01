@@ -1,0 +1,12 @@
+.skillcard
+{
+    max-width: 250px;
+    max-height: 500px;
+    background-color: #E9FFFA;
+}
+
+.skillbtn
+{
+    background-color: #024BC5;
+    color: white;
+}

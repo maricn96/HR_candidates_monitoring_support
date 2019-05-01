@@ -1,0 +1,21 @@
+<h1 *ngIf="skillsEmpty" style="color: red">No skills to display</h1>
+<mat-grid-list cols="5" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let sk of skillsApi">
+    <mat-card class="skillcard">
+      <mat-card-header>
+        <mat-card-title>{{ sk.skill }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ sk.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <p *ngIf="updateFlag && sk.id == ID_CHECK">Click on save changes to update!</p>
+        <button class="skillbtn" (click)="updateOpenDialog(sk.id)" *ngIf="!updateFlag" mat-button>Update</button>
+        <button class="skillbtn" (click)="saveUpdateChanges(sk.id)" *ngIf="sk.id == ID_CHECK" mat-button>Save changes</button>
+        <button class="skillbtn" (click)="deleteSkill(sk.id)" mat-button>Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+

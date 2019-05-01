@@ -1,0 +1,17 @@
+.candbtn
+{
+    background-color: #024BC5;
+    color: white;
+}
+
+.candcard
+{
+    min-width: 270px;
+    max-height: 2000px;
+    background-color: #E9FFFA;
+}
+
+.searchform
+{
+    min-width: 400px;
+}
