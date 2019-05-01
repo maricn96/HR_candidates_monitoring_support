@@ -1,6 +1,8 @@
 # HR_candidates_monitoring_support
 
-Application created for HR department that controlls job candidates that applies at company and their skills. Technologies: SpringBoot (Maven) + MySQL,  client: Angular 6
+Simple application for HR department that controls job candidates and their skills.
+
+Technologies: SpringBoot (Maven) + MySQL,  client: Angular 6
 
 
 Starting app guide:
