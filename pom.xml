@@ -103,7 +103,7 @@
 							<outputDirectory>${basedir}/src/main/webapp</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/hr-client/hr-client-app/dist/hr-client-app</directory>
+									<directory>${basedir}/hr-client/dist/hr-client-app</directory>
 								</resource>
 							</resources>
 						</configuration>
