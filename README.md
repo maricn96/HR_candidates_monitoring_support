@@ -5,7 +5,7 @@ Simple application for HR department that controls job candidates and their skil
 Technologies: SpringBoot (Maven) + MySQL,  client: Angular 6
 
 
-Starting app guide:
+A startup guide:
 
   -download or clone
   
